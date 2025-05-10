@@ -1,0 +1,56 @@
+package com.api.models.request;
+
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.Setter;
+import lombok.ToString;
+
+@AllArgsConstructor
+@Getter
+@Setter
+@ToString
+public class ProfileRequest {
+
+        private String firstName;
+        private String lastName;
+        private String email;
+        private String mobileNumber;
+
+
+    private ProfileRequest(Builder builder) {
+        this.firstName = builder.firstName;
+        this.lastName = builder.lastName;
+        this.email = builder.email;
+        this.mobileNumber = builder.mobileNumber;
+    }
+    public static class Builder {
+        private String firstName;
+        private String lastName;
+        private String email;
+        private String mobileNumber;
+
+        public Builder firstName(String firstName) {
+            this.firstName = firstName;
+            return this;
+        }
+
+        public Builder lastName(String lastName) {
+            this.lastName = lastName;
+            return this;
+        }
+        public Builder email(String email) {
+            this.email = email;
+            return this;
+        }
+        public Builder mobileNumber(String mobileNumber) {
+            this.mobileNumber = mobileNumber;
+            return this;
+        }
+
+        public ProfileRequest build(){
+            return new ProfileRequest(this);
+        }
+
+    }
+
+    }
